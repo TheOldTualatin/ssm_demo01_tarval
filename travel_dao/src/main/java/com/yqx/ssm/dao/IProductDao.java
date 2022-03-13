@@ -18,5 +18,6 @@ public interface IProductDao
      * @return 查询到的商品列表
      * @throws Exception 查询失败
      */
+    @Select("select * from ssm_test.product")
     List<Product> findAll() throws Exception;
 }

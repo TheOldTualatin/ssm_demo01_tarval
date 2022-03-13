@@ -25,7 +25,7 @@ public class ProductController
     {
         ModelAndView mv = new ModelAndView();
         List<Product> products = iProductService.finAll();
-        System.out.println("---------------------------------");
+        System.out.println(products.toString());
         mv.addObject("productList",products);
         mv.setViewName("product-list");
         return mv;
