@@ -9,7 +9,7 @@ public class Product {
   private String productNum;
   private String productName;
   private String cityName;
-  private java.sql.Timestamp departureTime;
+  private String departureTime;
   private long productPrice;
   private String productDesc;
   private int productStatus;
@@ -54,12 +54,12 @@ public class Product {
     this.cityName = cityName;
   }
 
-  public Timestamp getDepartureTime()
+  public String getDepartureTime()
   {
     return departureTime;
   }
 
-  public void setDepartureTime(Timestamp departureTime)
+  public void setDepartureTime(String  departureTime)
   {
     this.departureTime = departureTime;
   }

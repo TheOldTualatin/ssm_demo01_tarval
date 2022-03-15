@@ -10,4 +10,6 @@ import java.util.List;
 public interface IProductService
 {
     List<Product> finAll() throws Exception;
+
+    void save(Product product) throws Exception;
 }

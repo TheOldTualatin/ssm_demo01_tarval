@@ -21,4 +21,7 @@ public interface IProductDao
      */
     @Select("select * from ssm_test.product")
     List<Product> findAll() throws Exception;
+
+    @Insert("insert into ssm_test.product(id,productNum, productName, cityName, departureTime, productPrice, productDesc, productStatus) values(#{id},#{productNum}, #{productName}, #{cityName}, #{departureTime}, #{productPrice}, #{productDesc}, #{productStatus})")
+    void save(Product product) throws Exception;
 }
