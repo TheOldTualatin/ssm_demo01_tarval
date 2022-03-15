@@ -151,10 +151,10 @@
 	<div class="wrapper">
 
 		<!-- 页面头部 -->
-		<jsp:include page="header.jsp"></jsp:include>
+		<jsp:include page="../../pages/header.jsp"/>
 		<!-- 页面头部 /-->
 		<!-- 导航侧栏 -->
-		<jsp:include page="aside.jsp"></jsp:include>
+		<jsp:include page="../../pages/aside.jsp"/>
 		<!-- 导航侧栏 /-->
 
 		<!-- 内容区域 -->

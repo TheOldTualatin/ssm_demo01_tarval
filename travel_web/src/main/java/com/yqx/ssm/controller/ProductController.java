@@ -20,6 +20,11 @@ public class ProductController
     @Autowired
     private IProductService iProductService;
 
+    /**
+     * 查询所有产品
+     * @return
+     * @throws Exception
+     */
     @RequestMapping("/findAll.do")
     public ModelAndView findAll() throws Exception
     {
@@ -27,6 +32,7 @@ public class ProductController
         List<Product> products = iProductService.finAll();
         System.out.println(products.toString());
         mv.addObject("productList",products);
+//        请求转发跳转,这样可以避开视图解析器添加的WEB-INF的前路径
         mv.setViewName("product-list");
         return mv;
     }

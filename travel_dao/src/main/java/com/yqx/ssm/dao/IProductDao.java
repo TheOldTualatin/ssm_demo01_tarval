@@ -1,6 +1,7 @@
 package com.yqx.ssm.dao;
 
 import com.yqx.ssm.domain.Product;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 
