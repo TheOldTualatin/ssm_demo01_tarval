@@ -35,4 +35,18 @@
         <param-name>contextConfigLocation</param-name>
         <param-value>classpath:applicationContext.xml</param-value>
     </context-param>
+<!--  处理字符集转化  -->
+    <filter>
+        <filter-name>characterFilter</filter-name>
+        <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>characterFilter</filter-name>
+        <!--对所有URL进行拦截-->
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
 </web-app>

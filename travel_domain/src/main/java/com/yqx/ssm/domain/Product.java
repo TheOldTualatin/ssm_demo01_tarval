@@ -1,111 +1,118 @@
 package com.yqx.ssm.domain;
 
 
-import java.sql.Timestamp;
+import org.springframework.format.annotation.DateTimeFormat;
 
-public class Product {
+import java.util.Date;
 
-  private String id;
-  private String productNum;
-  private String productName;
-  private String cityName;
-  private String departureTime;
-  private long productPrice;
-  private String productDesc;
-  private int productStatus;
+public class Product
+{
 
-  public String getId()
-  {
-    return id;
-  }
+    private String id;
+    private String productNum;
+    private String productName;
+    private String cityName;
+    /**
+     * 前端传递的数据必须经过格式化转化为Date对象，并且填入的占位符也要与前端传递的时间格式一致
+     */
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
+    private Date departureTime;
+    private long productPrice;
+    private String productDesc;
+    private int productStatus;
 
-  public void setId(String id)
-  {
-    this.id = id;
-  }
+    public String getId()
+    {
+        return id;
+    }
 
-  public String getProductNum()
-  {
-    return productNum;
-  }
+    public void setId(String id)
+    {
+        this.id = id;
+    }
 
-  public void setProductNum(String productNum)
-  {
-    this.productNum = productNum;
-  }
+    public String getProductNum()
+    {
+        return productNum;
+    }
 
-  public String getProductName()
-  {
-    return productName;
-  }
+    public void setProductNum(String productNum)
+    {
+        this.productNum = productNum;
+    }
 
-  public void setProductName(String productName)
-  {
-    this.productName = productName;
-  }
+    public String getProductName()
+    {
+        return productName;
+    }
 
-  public String getCityName()
-  {
-    return cityName;
-  }
+    public void setProductName(String productName)
+    {
+        this.productName = productName;
+    }
 
-  public void setCityName(String cityName)
-  {
-    this.cityName = cityName;
-  }
+    public String getCityName()
+    {
+        return cityName;
+    }
 
-  public String getDepartureTime()
-  {
-    return departureTime;
-  }
+    public void setCityName(String cityName)
+    {
+        this.cityName = cityName;
+    }
 
-  public void setDepartureTime(String  departureTime)
-  {
-    this.departureTime = departureTime;
-  }
+    public Date getDepartureTime()
+    {
+        return departureTime;
+    }
 
-  public long getProductPrice()
-  {
-    return productPrice;
-  }
+    public void setDepartureTime(Date departureTime)
+    {
+        this.departureTime = departureTime;
+    }
 
-  public void setProductPrice(long productPrice)
-  {
-    this.productPrice = productPrice;
-  }
+    public long getProductPrice()
+    {
+        return productPrice;
+    }
 
-  public String getProductDesc()
-  {
-    return productDesc;
-  }
+    public void setProductPrice(long productPrice)
+    {
+        this.productPrice = productPrice;
+    }
 
-  public void setProductDesc(String productDesc)
-  {
-    this.productDesc = productDesc;
-  }
+    public String getProductDesc()
+    {
+        return productDesc;
+    }
 
-  public int getProductStatus()
-  {
-    return productStatus;
-  }
+    public void setProductDesc(String productDesc)
+    {
+        this.productDesc = productDesc;
+    }
 
-  public void setProductStatus(int productStatus)
-  {
-    this.productStatus = productStatus;
-  }
+    public int getProductStatus()
+    {
+        return productStatus;
+    }
 
-  @Override
-  public String toString()
-  {
-    return "Product{" +
-            "id='" + id + '\'' +
-            ", productNum='" + productNum + '\'' +
-            ", productName='" + productName + '\'' +
-            ", cityName='" + cityName + '\'' +
-            ", departureTime=" + departureTime +
-            ", productPrice=" + productPrice +
-            ", productDesc='" + productDesc + '\'' +
-            ", productStatus=" + productStatus +
-            '}';
-  }
+    public void setProductStatus(int productStatus)
+    {
+        this.productStatus = productStatus;
+    }
+
+    @Override
+    public String toString()
+    {
+        return "Product{" +
+                "id='" + id + '\'' +
+                ", productNum='" + productNum + '\'' +
+                ", productName='" + productName + '\'' +
+                ", cityName='" + cityName + '\'' +
+                ", departureTime=" + departureTime +
+                ", productPrice=" + productPrice +
+                ", productDesc='" + productDesc + '\'' +
+                ", productStatus=" + productStatus +
+                '}';
+    }
 }

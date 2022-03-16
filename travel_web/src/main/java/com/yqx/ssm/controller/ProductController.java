@@ -3,8 +3,6 @@ package com.yqx.ssm.controller;
 import com.yqx.ssm.domain.Product;
 import com.yqx.ssm.service.IProductService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Primary;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,8 +24,8 @@ public class ProductController
 
     /**
      * 查询所有产品
-     * @return
-     * @throws Exception
+     * @return 返回查询视图页面
+     * @throws Exception 抛出异常
      */
     @RequestMapping("/findAll.do")
     public ModelAndView findAll() throws Exception
@@ -42,12 +40,11 @@ public class ProductController
     }
 
     /**
-     * 添加产品
+     * 添加产品,注意从前端传递过来的日期格式的格式化
      * @param product 产品名称
      * @return 插入完成之后重新调用查询方法
      */
     @RequestMapping("/save.do")
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     public String svae(Product product) throws Exception
     {
 //        生成一个全球唯一的ID号
