@@ -3,7 +3,6 @@ package com.yqx.ssm.controller;
 import com.yqx.ssm.domain.Product;
 import com.yqx.ssm.service.IProductService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;

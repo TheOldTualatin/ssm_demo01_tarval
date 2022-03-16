@@ -1,5 +1,6 @@
 package com.yqx.ssm.service.impl;
 
+import com.yqx.ssm.dao.IOrdersDao;
 import com.yqx.ssm.dao.IProductDao;
 import com.yqx.ssm.domain.Product;
 import com.yqx.ssm.service.IProductService;
@@ -13,7 +14,6 @@ import java.util.List;
  * @author YangQX   2022/3/12 - 9:37
  */
 @Service
-//在具有增添语句时，涉及到事务操作
 @Transactional
 public class ProductServiceImpl implements IProductService
 {
