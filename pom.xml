@@ -143,6 +143,12 @@
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.26</version>
         </dependency>
+<!--    Mybatis分页插件    -->
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper</artifactId>
+            <version>5.2.1</version>
+        </dependency>
     </dependencies>
     <build>
         <!-- build配置resources,防止我们资源导出失败-->

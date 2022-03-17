@@ -53,6 +53,20 @@
         <!-- 扫描sql配置文件:mapper需要的xml文件 -->
                 <property name="mapperLocations"
                           value="classpath:mapper/*.xml"/>
+        <property name="plugins">
+            <array>
+                <bean class="com.github.pagehelper.PageInterceptor">
+                    <property name="properties">
+                        <props>
+<!--                            检测数据库-->
+                            <prop key="helperDialect">mysql</prop>
+<!--                            规范分页码-->
+                            <prop key="reasonable">true</prop>
+                        </props>
+                    </property>
+                </bean>
+            </array>
+        </property>
     </bean>
 
     <!-- 4.配置扫描Dao接口包，动态实现Dao接口，注入到spring容器中 -->

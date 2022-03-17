@@ -1,5 +1,6 @@
 package com.yqx.ssm.service.impl;
 
+import com.github.pagehelper.PageHelper;
 import com.yqx.ssm.dao.IOrdersDao;
 import com.yqx.ssm.domain.Orders;
 import com.yqx.ssm.service.IOrdersService;
@@ -20,6 +21,8 @@ public class OrdersServiceImpl implements IOrdersService
     @Override
     public List<Orders> findAll() throws Exception
     {
+//        指定分页参数,pageNum是页码值，pageSize是每一页显示的条数
+        PageHelper.startPage(1,5);
         return iOrdersDao.findAll();
     }
 }
