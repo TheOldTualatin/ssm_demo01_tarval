@@ -24,7 +24,7 @@ public class OrdersController
     {
         ModelAndView mv = new ModelAndView();
         List<Orders> all = iOrdersService.findAll();
-        mv.addObject("",all);
+        mv.addObject("ordersList",all);
         mv.setViewName("orders-list");
         return mv;
     }
