@@ -31,10 +31,11 @@ public interface IProductDao
     void save(Product product) throws Exception;
 
     /**
-     * Query products by ID
+     * Query products by
+     *
      * @return The product object
      */
     @Select("select * from product where id =#{id}")
-    Product findById();
+    Product findById(String id);
 
 }

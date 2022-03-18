@@ -16,6 +16,12 @@ public class Orders {
   private String orderDesc;
   private long payType;
   private String payTypeStr;
+  private Product product;
+  private String memberId;
+  private Member member;
+  private List<Traveller> travellers;
+  private long orderStatus;
+  private String orderStatusStr;
 
   public String getPayTypeStr()
   {
@@ -38,9 +44,6 @@ public class Orders {
     this.orderStatusStr = orderStatusStr;
   }
 
-  private long orderStatus;
-  private String orderStatusStr;
-
   public String getOrderStatusStr()
   {
     if(orderStatus==0)
@@ -53,9 +56,7 @@ public class Orders {
     }
   }
 
-  private Product product;
-  private String memberId;
-  private List<Traveller> travellers;
+
 
   public String getId()
   {
@@ -155,5 +156,35 @@ public class Orders {
   public void setTravellers(List<Traveller> travellers)
   {
     this.travellers = travellers;
+  }
+
+  public Member getMember()
+  {
+    return member;
+  }
+
+  public void setMember(Member member)
+  {
+    this.member = member;
+  }
+
+  @Override
+  public String toString()
+  {
+    return "Orders{" +
+            "id='" + id + '\'' +
+            ", orderNum='" + orderNum + '\'' +
+            ", orderTime=" + orderTime +
+            ", peopleCount=" + peopleCount +
+            ", orderDesc='" + orderDesc + '\'' +
+            ", payType=" + payType +
+            ", payTypeStr='" + payTypeStr + '\'' +
+            ", product=" + product +
+            ", memberId='" + memberId + '\'' +
+            ", member=" + member +
+            ", travellers=" + travellers +
+            ", orderStatus=" + orderStatus +
+            ", orderStatusStr='" + orderStatusStr + '\'' +
+            '}';
   }
 }

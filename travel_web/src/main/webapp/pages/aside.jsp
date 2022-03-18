@@ -60,7 +60,9 @@
 						href="${pageContext.request.contextPath}/product/findAll.do">
 							<i class="fa fa-circle-o"></i> 产品管理
 					</a></li>
-					<li id="system-setting"><a
+					<li id="system-setting">
+<%--			传递参数时候指定需要分页的数据			--%>
+						<a
 						href="${pageContext.request.contextPath}/orders/findAll.do?page=1&pageSize=3"> <i
 							class="fa fa-circle-o"></i> 订单管理
 					</a></li>

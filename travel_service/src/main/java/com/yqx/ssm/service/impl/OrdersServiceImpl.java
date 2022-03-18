@@ -18,11 +18,18 @@ public class OrdersServiceImpl implements IOrdersService
     @Autowired
     private IOrdersDao iOrdersDao;
 
+
     @Override
-    public List<Orders> findAll() throws Exception
+    public List<Orders> findAll(int page,int size) throws Exception
     {
-//        指定分页参数,pageNum是页码值，pageSize是每一页显示的条数
-        PageHelper.startPage(1,5);
+//        指定分页参数,pageNum是页码值，pageSize是每一页显示的条数，必须只能写在分页的前一句
+        PageHelper.startPage(page,size);
         return iOrdersDao.findAll();
+    }
+
+    @Override
+    public Orders findById(String id) throws Exception
+    {
+        return iOrdersDao.findById(id);
     }
 }

@@ -9,5 +9,19 @@ import java.util.List;
  */
 public interface IOrdersService
 {
-    List<Orders> findAll() throws Exception;
+    /**
+     * 查询所有订单
+     * @param page 当前页数
+     * @param size 煤业条数
+     * @return 所有商品
+     * @throws Exception
+     */
+    List<Orders> findAll(int page,int size) throws Exception;
+
+    /**
+     * 根据ID查询订单
+     * @param id 所查询数据的ID
+     * @throws Exception
+     */
+    Orders findById(String id) throws Exception;
 }

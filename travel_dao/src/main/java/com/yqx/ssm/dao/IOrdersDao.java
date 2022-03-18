@@ -1,11 +1,9 @@
 package com.yqx.ssm.dao;
 
+import com.yqx.ssm.domain.Member;
 import com.yqx.ssm.domain.Orders;
 import com.yqx.ssm.domain.Product;
-import org.apache.ibatis.annotations.One;
-import org.apache.ibatis.annotations.Result;
-import org.apache.ibatis.annotations.Results;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -23,16 +21,17 @@ public interface IOrdersDao
      */
     @Select("select * from orders")
     @Results({
-            @Result(id = true,property = "id",column = "id"),
-            @Result(property = "orderNum",column = "orderNum"),
-            @Result(property = "orderTime",column = "orderTime"),
-            @Result(property = "peopleCount",column = "peopleCount"),
-            @Result(property = "orderDesc",column = "orderDesc"),
-            @Result(property = "payType",column = "payType"),
-            @Result(property = "orderStatus",column = "orderStatus"),
 //            The subquery,specify that the type to be queried is an object，Then the associated query method
             @Result(property = "product",column = "productId",javaType = Product.class,one = @One(select = "com.yqx.ssm.dao.IProductDao.findById")),
-            @Result(property = "orderNum",column = "orderNum"),
     })
     List<Orders> findAll() throws Exception;
+
+    @Select("select * from orders where id = #{ordersId}")
+    @Results({
+            @Result(property = "id",column = "id"),
+            @Result(property = "product",column = "productId",javaType = Product.class,one = @One(select = "com.yqx.ssm.dao.IProductDao.findById")),
+            @Result(property = "member",column = "memberId",javaType = Member.class,one = @One(select = "com.yqx.ssm.dao.IMember.findById")),
+            @Result(property = "travellers",column = "id",javaType = java.util.List.class,many = @Many(select = "com.yqx.ssm.dao.ITraveller.findByOrdersId"))
+    })
+    Orders findById(String ordersId);
 }
