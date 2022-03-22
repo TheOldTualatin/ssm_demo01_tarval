@@ -1,0 +1,111 @@
+package com.yqx.ssm.domain;
+
+
+import java.util.List;
+
+public class Users {
+
+  private String id;
+  private String email;
+  private String username;
+  private String password;
+  private String phoneNum;
+  private Long status;
+  private String statusStr;
+  private List<Role> roles;
+
+  public String getId()
+  {
+    return id;
+  }
+
+  public void setId(String id)
+  {
+    this.id = id;
+  }
+
+  public String getEmail()
+  {
+    return email;
+  }
+
+  public void setEmail(String email)
+  {
+    this.email = email;
+  }
+
+  public String getUsername()
+  {
+    return username;
+  }
+
+  public void setUsername(String username)
+  {
+    this.username = username;
+  }
+
+  public String getPassword()
+  {
+    return password;
+  }
+
+  public void setPassword(String password)
+  {
+    this.password = password;
+  }
+
+  public String getPhoneNum()
+  {
+    return phoneNum;
+  }
+
+  public void setPhoneNum(String phoneNum)
+  {
+    this.phoneNum = phoneNum;
+  }
+
+  public Long getStatus()
+  {
+    return status;
+  }
+
+  public void setStatus(Long status)
+  {
+    this.status = status;
+  }
+
+  public String getStatusStr()
+  {
+    return statusStr;
+  }
+
+  public void setStatusStr(String statusStr)
+  {
+    this.statusStr = statusStr;
+  }
+
+  public List<Role> getRoles()
+  {
+    return roles;
+  }
+
+  public void setRoles(List<Role> roles)
+  {
+    this.roles = roles;
+  }
+
+  @Override
+  public String toString()
+  {
+    return "Users{" +
+            "id='" + id + '\'' +
+            ", email='" + email + '\'' +
+            ", username='" + username + '\'' +
+            ", password='" + password + '\'' +
+            ", phoneNum='" + phoneNum + '\'' +
+            ", status=" + status +
+            ", statusStr='" + statusStr + '\'' +
+            ", roles=" + roles +
+            '}';
+  }
+}
