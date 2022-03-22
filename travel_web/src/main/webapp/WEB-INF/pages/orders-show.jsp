@@ -173,7 +173,7 @@
 					<tbody>
 						<c:forEach var="traveller" items="${orders.travellers}">
 							<tr>
-								<td>${traveller.travellerType}</td>
+								<td>${traveller.travellerTypeStr}</td>
 								<td><input type="text" size="10" value="${traveller.name }"
 									readonly="readonly"></td>
 								<td><input type="text" size="10" value="${traveller.sex }"

@@ -27,11 +27,12 @@ public class Orders {
   {
     if(payType==0)
     {
-      return "微信支付";
+      payTypeStr = "微信支付";
     }else
     {
-      return "支付宝支付";
+      payTypeStr =  "支付宝支付";
     }
+    return payTypeStr;
   }
 
   public void setPayTypeStr(String payTypeStr)
@@ -48,12 +49,13 @@ public class Orders {
   {
     if(orderStatus==0)
     {
-      return "已支付";
+      orderStatusStr =  "已支付";
     }
     else
     {
-      return "未支付";
+      orderStatusStr =  "未支付";
     }
+    return  orderStatusStr;
   }
 
 

@@ -7,9 +7,11 @@ public class Traveller {
   private String name;
   private String sex;
   private String phoneNum;
-  private long credentialsType;
+  private Long credentialsType;
+  private String credentialsTypeStr;
   private String credentialsNum;
-  private long travellerType;
+  private Long travellerType;
+  private String travellerTypeStr;
 
 
   public String getId() {
@@ -48,7 +50,20 @@ public class Traveller {
   }
 
 
-  public long getCredentialsType() {
+  public Long getCredentialsType() {
+    if(credentialsType!=null)
+    {
+      if(credentialsType==0)
+      {
+         credentialsTypeStr = "身份证";
+      }else  if(credentialsType==1)
+      {
+        credentialsTypeStr = "护照";
+      }else  if(credentialsType==2)
+      {
+        credentialsTypeStr = "军官证";
+      }
+    }
     return credentialsType;
   }
 
@@ -74,6 +89,46 @@ public class Traveller {
     this.travellerType = travellerType;
   }
 
+  public void setCredentialsType(Long credentialsType)
+  {
+    this.credentialsType = credentialsType;
+  }
+
+  public String getCredentialsTypeStr()
+  {
+    return credentialsTypeStr;
+  }
+
+  public void setCredentialsTypeStr(String credentialsTypeStr)
+  {
+    this.credentialsTypeStr = credentialsTypeStr;
+  }
+
+  public void setTravellerType(Long travellerType)
+  {
+    this.travellerType = travellerType;
+  }
+
+  public String getTravellerTypeStr()
+  {
+    if(travellerType!=null)
+    {
+      if(travellerType==0)
+      {
+        travellerTypeStr = "成人";
+      }else  if(travellerType==1)
+      {
+        travellerTypeStr = "儿童";
+      }
+    }
+    return travellerTypeStr;
+  }
+
+  public void setTravellerTypeStr(String travellerTypeStr)
+  {
+    this.travellerTypeStr = travellerTypeStr;
+  }
+
   @Override
   public String toString()
   {
@@ -83,8 +138,10 @@ public class Traveller {
             ", sex='" + sex + '\'' +
             ", phoneNum='" + phoneNum + '\'' +
             ", credentialsType=" + credentialsType +
+            ", credentialsTypeStr='" + credentialsTypeStr + '\'' +
             ", credentialsNum='" + credentialsNum + '\'' +
             ", travellerType=" + travellerType +
+            ", travellerTypeStr=" + travellerTypeStr +
             '}';
   }
 }
