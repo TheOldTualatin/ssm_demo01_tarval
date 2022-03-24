@@ -9,7 +9,7 @@ public class Role {
   private String roleName;
   private String roleDesc;
   private List<Permission> permissions;
-  private List<Users> users;
+  private List<UserInfo> users;
 
   public String getId()
   {
@@ -51,12 +51,12 @@ public class Role {
     this.permissions = permissions;
   }
 
-  public List<Users> getUsers()
+  public List<UserInfo> getUsers()
   {
     return users;
   }
 
-  public void setUsers(List<Users> users)
+  public void setUsers(List<UserInfo> users)
   {
     this.users = users;
   }

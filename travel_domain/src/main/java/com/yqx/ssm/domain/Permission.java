@@ -9,7 +9,7 @@ public class Permission {
   private String permissionName;
   private String url;
   private List<Permission> permissions;
-  private List<Users> users;
+  private List<UserInfo> users;
 
   public String getId()
   {
@@ -51,12 +51,12 @@ public class Permission {
     this.permissions = permissions;
   }
 
-  public List<Users> getUsers()
+  public List<UserInfo> getUsers()
   {
     return users;
   }
 
-  public void setUsers(List<Users> users)
+  public void setUsers(List<UserInfo> users)
   {
     this.users = users;
   }

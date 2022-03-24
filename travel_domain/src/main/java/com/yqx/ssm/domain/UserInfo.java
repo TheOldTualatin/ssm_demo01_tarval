@@ -3,7 +3,8 @@ package com.yqx.ssm.domain;
 
 import java.util.List;
 
-public class Users {
+public class UserInfo
+{
 
   private String id;
   private String email;
@@ -97,7 +98,7 @@ public class Users {
   @Override
   public String toString()
   {
-    return "Users{" +
+    return "UserInfo{" +
             "id='" + id + '\'' +
             ", email='" + email + '\'' +
             ", username='" + username + '\'' +
