@@ -10,6 +10,7 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +19,7 @@ import java.util.List;
  * @author YangQX   2022/3/23 - 13:42
  */
 @Service(value = "userService")
+@Transactional
 public class UserServiceImpl implements IUserService
 {
     @Autowired
@@ -51,5 +53,17 @@ public class UserServiceImpl implements IUserService
             list.add(new SimpleGrantedAuthority("ROLE_"+role.getRoleName()));
         }
         return list;
+    }
+
+    @Override
+    public List<UserInfo> findAll()
+    {
+        return iUserDao.findAll();
+    }
+
+    @Override
+    public UserInfo findById(String id)
+    {
+        return iUserDao.findById(id);
     }
 }

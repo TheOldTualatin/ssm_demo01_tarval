@@ -12,6 +12,12 @@ import java.util.List;
 @Repository
 public interface IRoleDao
 {
+    /**
+     * 根据用户ID查询用户角色
+     * @param userId 用户ID
+     * @return 用户角色列表
+     * @throws Exception
+     */
     @Select("select * from role where id in (select roleId from users_role where userId= #{userId});")
     List<Role> findBoleByUserId(String userId) throws Exception;
 }

@@ -35,7 +35,7 @@
     	<!-- 关闭跨域请求 -->
     	<security:csrf disabled="true"/>
     	
-    	<!-- 退出 -->
+    	<!-- 用户退出操作 -->
     	<security:logout invalidate-session="true" logout-url="/logout.do" logout-success-url="/login.jsp" />
     	
     </security:http>
