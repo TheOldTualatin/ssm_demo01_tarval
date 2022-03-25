@@ -31,7 +31,7 @@ public interface IOrdersDao
             @Result(property = "id",column = "id"),
             @Result(property = "product",column = "productId",javaType = Product.class,one = @One(select = "com.yqx.ssm.dao.IProductDao.findById")),
             @Result(property = "member",column = "memberId",javaType = Member.class,one = @One(select = "com.yqx.ssm.dao.IMember.findById")),
-            @Result(property = "travellers",column = "id",javaType = java.util.List.class,many = @Many(select = "com.yqx.ssm.dao.ITraveller.findByOrdersId"))
+            @Result(property = "travellers",column = "id",javaType = java.util.List.class,many = @Many(select = "com.yqx.ssm.dao.ITravellerDao.findByOrdersId"))
     })
     Orders findById(String ordersId);
 }
