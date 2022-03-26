@@ -9,6 +9,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -25,6 +26,9 @@ public class UserServiceImpl implements IUserService
     @Autowired
     private IUserDao iUserDao;
 
+    @Autowired
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
+
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException
     {
@@ -40,7 +44,7 @@ public class UserServiceImpl implements IUserService
 //        将自己的user对象封装成springSecurity对象
 //        User user = new User(userInfo.getUsername(),"{noop}"+userInfo.getPassword(),getAuthority(userInfo.getRoles()));
         assert userInfo != null;
-        User user = new User(userInfo.getUsername(),"{noop}"+userInfo.getPassword(), userInfo.getStatus() != 0,true,true,true,getAuthority(userInfo.getRoles()));
+        User user = new User(userInfo.getUsername(),userInfo.getPassword(), userInfo.getStatus() != 0,true,true,true,getAuthority(userInfo.getRoles()));
 //        Security底层会将用户名与密码进行配对，然后返回对应页面
         return user;
     }
@@ -56,14 +60,23 @@ public class UserServiceImpl implements IUserService
     }
 
     @Override
-    public List<UserInfo> findAll()
+    public List<UserInfo> findAll() throws Exception
     {
         return iUserDao.findAll();
     }
 
     @Override
-    public UserInfo findById(String id)
+    public UserInfo findById(String id) throws Exception
     {
         return iUserDao.findById(id);
+    }
+
+    @Override
+    public void save(UserInfo userInfo) throws Exception
+    {
+//        对密码加密
+        String encode = bCryptPasswordEncoder.encode(userInfo.getPassword());
+        userInfo.setPassword(encode);
+        iUserDao.save(userInfo);
     }
 }

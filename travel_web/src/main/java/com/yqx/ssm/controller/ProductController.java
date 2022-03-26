@@ -1,5 +1,6 @@
 package com.yqx.ssm.controller;
 
+import com.yqx.ssm.config.UUIdUtils;
 import com.yqx.ssm.domain.Product;
 import com.yqx.ssm.service.IProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
-import java.util.UUID;
 
 /**
  * @author YangQX   2022/3/12 - 10:11
@@ -47,9 +47,8 @@ public class ProductController
     public String svae(Product product) throws Exception
     {
 //        生成一个全球唯一的ID号
-        UUID uuid = UUID.randomUUID();
-        System.out.println(uuid);
-        product.setId(uuid.toString());
+        String uuid = UUIdUtils.getId();
+        product.setId(uuid);
         iProductService.save(product);
         return "redirect:/product/findAll.do";
     }

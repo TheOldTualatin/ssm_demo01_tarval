@@ -1,5 +1,6 @@
 package com.yqx.ssm.controller;
 
+import com.yqx.ssm.config.UUIdUtils;
 import com.yqx.ssm.domain.UserInfo;
 import com.yqx.ssm.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +21,7 @@ public class UserController
     private IUserService iUserService;
 
     @RequestMapping("/findAll.do")
-    public ModelAndView findAll()
+    public ModelAndView findAll() throws Exception
     {
         ModelAndView modelAndView = new ModelAndView();
         List<UserInfo> userInfoList = iUserService.findAll();
@@ -30,7 +31,7 @@ public class UserController
     }
 
     @RequestMapping("/findById.do")
-    public ModelAndView findById(String id)
+    public ModelAndView findById(String id) throws Exception
     {
         System.out.println("id= "+ id);
         ModelAndView modelAndView = new ModelAndView();
@@ -38,5 +39,14 @@ public class UserController
         modelAndView.addObject("user",userInfo);
         modelAndView.setViewName("user-show");
         return modelAndView;
+    }
+
+    @RequestMapping("/save.do")
+    public String save(UserInfo userInfo) throws Exception
+    {
+        userInfo.setId(UUIdUtils.getId());
+        iUserService.save(userInfo);
+//        添加完成后再次查看所有用户
+        return "redirect:/user/findAll.do";
     }
 }

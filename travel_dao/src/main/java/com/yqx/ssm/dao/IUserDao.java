@@ -1,10 +1,7 @@
 package com.yqx.ssm.dao;
 
 import com.yqx.ssm.domain.UserInfo;
-import org.apache.ibatis.annotations.Many;
-import org.apache.ibatis.annotations.Result;
-import org.apache.ibatis.annotations.Results;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -41,4 +38,7 @@ public interface IUserDao
             @Result(property = "roles", column = "id", javaType = java.util.List.class, many = @Many(select = "com.yqx.ssm.dao.IRoleDao.findBoleByUserId"))
     })
     UserInfo findById(String id);
+
+    @Insert("insert into users(id, email, username, PASSWORD, phoneNum, STATUS) values (#{id},#{email},#{username},#{password},#{phoneNum},#{status})")
+    void save(UserInfo userInfo);
 }
