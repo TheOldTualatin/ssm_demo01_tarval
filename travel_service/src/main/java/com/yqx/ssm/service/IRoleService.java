@@ -15,4 +15,9 @@ public interface IRoleService
      * @throws Exception
      */
     List<Role> findAll() throws Exception;
+
+    /**
+     * 添加角色
+     */
+    void save(Role role) throws Exception;
 }

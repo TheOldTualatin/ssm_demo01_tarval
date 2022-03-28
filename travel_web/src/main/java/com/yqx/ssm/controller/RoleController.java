@@ -1,5 +1,6 @@
 package com.yqx.ssm.controller;
 
+import com.yqx.ssm.config.UUIdUtils;
 import com.yqx.ssm.domain.Role;
 import com.yqx.ssm.service.IRoleService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,5 +28,13 @@ public class RoleController
         modelAndView.addObject("roleList",roles);
         modelAndView.setViewName("role-list");
         return modelAndView;
+    }
+
+    @RequestMapping("/save.do")
+    public String save(Role role) throws Exception
+    {
+        role.setId(UUIdUtils.getId());
+        iRoleService.save(role);
+        return "redirect:/role/findAll.do";
     }
 }

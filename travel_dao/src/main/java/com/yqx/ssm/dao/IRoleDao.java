@@ -1,10 +1,7 @@
 package com.yqx.ssm.dao;
 
 import com.yqx.ssm.domain.Role;
-import org.apache.ibatis.annotations.Many;
-import org.apache.ibatis.annotations.Result;
-import org.apache.ibatis.annotations.Results;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -35,4 +32,11 @@ public interface IRoleDao
      */
     @Select("select * from role")
     List<Role> findAll() throws Exception;
+
+    /**
+     * 添加角色
+     * @throws Exception
+     */
+    @Insert("insert into role(id, roleName, roleDesc) VALUES (#{id}, #{roleName}, #{roleDesc});")
+    void save(Role role) throws Exception;
 }
