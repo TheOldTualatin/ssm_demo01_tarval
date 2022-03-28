@@ -3,6 +3,7 @@ package com.yqx.ssm.dao;
 import com.yqx.ssm.domain.Member;
 import com.yqx.ssm.domain.Orders;
 import com.yqx.ssm.domain.Product;
+import com.yqx.ssm.domain.Role;
 import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
 

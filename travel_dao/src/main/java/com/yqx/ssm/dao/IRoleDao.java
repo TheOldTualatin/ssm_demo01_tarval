@@ -28,4 +28,11 @@ public interface IRoleDao
             @Result(property = "permissions", column = "id", javaType = java.util.List.class, many = @Many(select = "com.yqx.ssm.dao.IPermissionsDao.findRoleByRoleId"))
     })
     List<Role> findBoleByUserId(String userId) throws Exception;
+
+    /**
+     * 查询所有角色
+     * @return 角色列表
+     */
+    @Select("select * from role")
+    List<Role> findAll() throws Exception;
 }
