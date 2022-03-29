@@ -1,5 +1,6 @@
 package com.yqx.ssm.dao;
 
+import com.yqx.ssm.domain.Role;
 import com.yqx.ssm.domain.UserInfo;
 import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
@@ -41,4 +42,7 @@ public interface IUserDao
 
     @Insert("insert into users(id, email, username, PASSWORD, phoneNum, STATUS) values (#{id},#{email},#{username},#{password},#{phoneNum},#{status})")
     void save(UserInfo userInfo);
+
+    @Select("select * from role where id not in (select roleId from users_role where userId = #{userId});")
+    List<Role> findOtherRoles(String userId);
 }

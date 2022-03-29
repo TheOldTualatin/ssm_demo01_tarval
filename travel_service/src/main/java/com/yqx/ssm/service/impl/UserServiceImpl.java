@@ -79,4 +79,10 @@ public class UserServiceImpl implements IUserService
         userInfo.setPassword(encode);
         iUserDao.save(userInfo);
     }
+
+    @Override
+    public List<Role> findOtherRoles(String userId)
+    {
+        return iUserDao.findOtherRoles(userId);
+    }
 }

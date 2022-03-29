@@ -1,5 +1,6 @@
 package com.yqx.ssm.service;
 
+import com.yqx.ssm.domain.Role;
 import com.yqx.ssm.domain.UserInfo;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
@@ -15,4 +16,6 @@ public interface IUserService extends UserDetailsService
     UserInfo findById(String id) throws Exception;
 
     void save(UserInfo userInfo) throws Exception;
+
+    List<Role> findOtherRoles(String userId);
 }
