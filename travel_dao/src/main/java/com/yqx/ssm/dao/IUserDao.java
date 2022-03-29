@@ -45,4 +45,12 @@ public interface IUserDao
 
     @Select("select * from role where id not in (select roleId from users_role where userId = #{userId});")
     List<Role> findOtherRoles(String userId);
+
+    /**
+     * 根据Id添加角色
+     * @param userId 用户ID
+     * @param ids 角色Id集合
+     */
+
+    void addRoleToUser(@Param("userId") String userId,@Param("ids") String[] ids);
 }

@@ -17,5 +17,7 @@ public interface IUserService extends UserDetailsService
 
     void save(UserInfo userInfo) throws Exception;
 
-    List<Role> findOtherRoles(String userId);
+    List<Role> findOtherRoles(String userId) throws Exception;
+
+    void addRoleToUser(String userId, String[] ids) throws  Exception;
 }

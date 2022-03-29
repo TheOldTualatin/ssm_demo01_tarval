@@ -69,4 +69,12 @@ public class UserController
         modelAndView.setViewName("user-role-add");
         return  modelAndView;
     }
+
+    @RequestMapping("/addRoleToUser.do")
+    public String addRoleToUser(@RequestParam(name="userId",required = true) String userId,
+                                @RequestParam(name = "ids",required = true) String[] ids) throws Exception
+    {
+        iUserService.addRoleToUser(userId,ids);
+        return "redirect:/user/findAll.do";
+    }
 }
