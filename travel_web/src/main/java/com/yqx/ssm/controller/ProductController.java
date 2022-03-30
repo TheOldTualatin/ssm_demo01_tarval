@@ -4,10 +4,12 @@ import com.yqx.ssm.config.UUIdUtils;
 import com.yqx.ssm.domain.Product;
 import com.yqx.ssm.service.IProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.annotation.security.RolesAllowed;
 import java.util.List;
 
 /**
@@ -27,6 +29,7 @@ public class ProductController
      * @throws Exception 抛出异常
      */
     @RequestMapping("/findAll.do")
+    @Secured("ROLE_ADMIN") //    方法级别的权限控制
     public ModelAndView findAll() throws Exception
     {
         ModelAndView mv = new ModelAndView();

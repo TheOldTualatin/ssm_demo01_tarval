@@ -5,6 +5,7 @@ import com.yqx.ssm.domain.Role;
 import com.yqx.ssm.domain.UserInfo;
 import com.yqx.ssm.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -23,6 +24,7 @@ public class UserController
     private IUserService iUserService;
 
     @RequestMapping("/findAll.do")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public ModelAndView findAll() throws Exception
     {
         ModelAndView modelAndView = new ModelAndView();
@@ -33,6 +35,7 @@ public class UserController
     }
 
     @RequestMapping("/findById.do")
+    @PreAuthorize("authentication.principal.username=='xiaoming'") //获取当前正在登录的用户名字，只有为xiaoming时才能获得权限
     public ModelAndView findById(String id) throws Exception
     {
         System.out.println("id= "+ id);
