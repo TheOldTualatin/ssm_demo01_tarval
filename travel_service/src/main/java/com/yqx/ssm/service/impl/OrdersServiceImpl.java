@@ -20,7 +20,7 @@ public class OrdersServiceImpl implements IOrdersService
 
 
     @Override
-    public List<Orders> findAll(int page,int size) throws Exception
+    public List<Orders> findAll(Integer page,Integer size) throws Exception
     {
 //        指定分页参数,pageNum是页码值，pageSize是每一页显示的条数，必须只能写在分页的前一句
         PageHelper.startPage(page,size);

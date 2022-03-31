@@ -46,8 +46,8 @@ public class OrdersController
      */
     @RequestMapping("/findAll.do")
     public ModelAndView findAll(
-            @RequestParam(name = "page", required = true, defaultValue = "1") int page,
-            @RequestParam(name = "size", required = true, defaultValue = "3") int size
+            @RequestParam(name = "page", required = true, defaultValue = "1") Integer page,
+            @RequestParam(name = "size", required = true, defaultValue = "3") Integer size
                                ) throws Exception
     {
         ModelAndView mv = new ModelAndView();

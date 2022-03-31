@@ -27,6 +27,10 @@
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
+    <!--  配置获取Request对象  -->
+    <listener>
+        <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
+    </listener>
     <!--  配置欢迎页  -->
     <welcome-file-list>
         <welcome-file>/pages/index.jsp</welcome-file>
@@ -35,7 +39,7 @@
         <param-name>contextConfigLocation</param-name>
         <param-value>classpath:applicationContext.xml</param-value>
     </context-param>
-<!--  处理字符集转化  -->
+    <!--  处理字符集转化  -->
     <filter>
         <filter-name>characterFilter</filter-name>
         <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
@@ -44,7 +48,7 @@
             <param-value>UTF-8</param-value>
         </init-param>
     </filter>
-<!--  spring-security权限控制  -->
+    <!--  spring-security权限控制  -->
     <filter>
         <filter-name>springSecurityFilterChain</filter-name>
         <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>

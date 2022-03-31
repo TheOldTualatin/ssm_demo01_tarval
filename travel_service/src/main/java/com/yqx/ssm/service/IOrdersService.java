@@ -16,7 +16,7 @@ public interface IOrdersService
      * @return 所有商品
      * @throws Exception
      */
-    List<Orders> findAll(int page,int size) throws Exception;
+    List<Orders> findAll(Integer page,Integer size) throws Exception;
 
     /**
      * 根据ID查询订单
